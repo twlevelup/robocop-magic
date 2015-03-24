@@ -1,5 +1,8 @@
 class Robocop
-    def beep
-        'beep boop'
-    end
+
+  $forwardCommand
+  $xLocation = 0
+  $yLocation = 0
+
+
 end
