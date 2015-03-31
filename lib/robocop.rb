@@ -1,5 +1,4 @@
 class Robocop
-<<<<<<< HEAD
  @direction
 
     def beep
