@@ -1,4 +1,5 @@
 class Robocop
+<<<<<<< HEAD
  @direction
 
     def beep
@@ -37,4 +38,12 @@ class Robocop
 			turn_left
 			turn_left
 		end
+=======
+
+  $forwardCommand
+  $xLocation = 0
+  $yLocation = 0
+
+
+>>>>>>> 739bc84036390cce9a8f38499747b1c0bbead77a
 end
