@@ -2,18 +2,24 @@ require 'robocop'
 
 RSpec.describe Robocop do
 
-  it 'when F is entered move forward by 1 block' do
+  it 'should move forward by 1 block north when robot is facing north' do
+    #create a robot that is facing north
+    #tell it to move forward
+    #make sure that its location has changed
     d = Robocop.new
-    expect(d.setCommand('F')).to eq('command is set to F')
+    expect(d.moveForward()).to eq('Robot move forward by 1 to north')
+ expect()
   end
 
-  it 'when R is entered get message Command not found' do
-    d = Robocop.new
-    expect(d.setCommand('R')).to eq('Command not found')
-  end
+  # it 'should move forward by 1 block south when robot is facing south' do
+      @testy = 10
+      @finaly = 11
 
-  it 'robot tell us it finish moving forward we should get location' do
+      @d = Robocop.new(0, @testy, 'S')
 
-  end
+     expect(d.moveForward()).eq('robot move forward by 1 to south')
+     expect(d.gety).eq('robot move forward by 1 to south');
+
+  # end
 
 end
