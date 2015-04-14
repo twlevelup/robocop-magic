@@ -1,5 +1,10 @@
 class Robocop
  @direction
+ @x
+ @y
+
+ @@gridx = 10
+ @@gridy = 10
 
     def beep
         'beep boop'
@@ -15,6 +20,13 @@ class Robocop
 		
 		def set_direction (direction)
 			@direction = direction
+		end
+
+		def set_x(locationX)
+			@x = locationX
+		end
+		def set_y (locationY)
+			@y = locationY
 		end
 		
 		def turn_left
@@ -37,6 +49,22 @@ class Robocop
 			turn_left
 			turn_left
 		end
+
+def canMoveForward
+
+	case @direction
+		when 'N'
+			return @y < @@gridy
+		when 'S'
+			return @y > 0 
+		when 'E'
+			return @x < @@gridx 
+		when 'W'
+			return @x > 0 
+		else
+			'Error: Invalid direction'
+	end
+end
 
   def initialize()
     @x = 0

@@ -71,4 +71,63 @@ RSpec.describe Robocop do
 		d.set_direction('X')
     expect(d.turn_right).to eq('Error: Invalid direction')
 	end
+
+	it "It should show False if when moving north from the edge" do
+		d = Robocop.new
+		d.set_x(0)
+		d.set_y(10)
+		d.set_direction('N')
+    	expect(d.canMoveForward()).to eq(false)
+	end
+
+	it "It should show True if when moving north from the grid" do
+		d = Robocop.new
+		d.set_x(0)
+		d.set_y(5)
+		d.set_direction('N')
+    	expect(d.canMoveForward()).to eq(true)
+	end
+
+	it "It should show False if when moving South from the edge" do
+		d = Robocop.new
+		d.set_y(0)
+		d.set_direction('S')
+    	expect(d.canMoveForward()).to eq(false)
+	end
+	it "It should show True if when moving South from the grid" do
+		d = Robocop.new
+		d.set_y(7)
+		d.set_direction('S')
+    	expect(d.canMoveForward()).to eq(true)
+	end
+
+	it "It should show false if when moving East from the edge" do
+		d = Robocop.new
+		d.set_x(10)
+		d.set_direction('E')
+    	expect(d.canMoveForward()).to eq(false)
+	end
+	it "It should show true if when moving East from the grid" do
+		d = Robocop.new
+		d.set_x(8)
+		d.set_direction('E')
+    	expect(d.canMoveForward()).to eq(true)
+	end
+	it "It should show false if when moving West from the edge" do
+		d = Robocop.new
+		d.set_x(0)
+		d.set_direction('W')
+    	expect(d.canMoveForward()).to eq(false)
+	end
+
+	it "It should show true if when moving West from the grid" do
+		d = Robocop.new
+		d.set_x(5)
+		d.set_direction('W')
+    	expect(d.canMoveForward()).to eq(true)
+	end
+
+
+
+
 end
