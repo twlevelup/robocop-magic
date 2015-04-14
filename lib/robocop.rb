@@ -37,7 +37,6 @@ class Robocop
 			turn_left
 			turn_left
 		end
-=======
 
   def initialize()
     @x = 0
@@ -45,12 +44,4 @@ class Robocop
     @direction = 'N'
   end
 
-  def moveForward()
-    if @direction == 'N'
-      @y=@y+1
-      return 'Robot move forward by 1 to north'
-    end
-  end
-
->>>>>>> 739bc84036390cce9a8f38499747b1c0bbead77a
 end
