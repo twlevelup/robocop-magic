@@ -1,5 +1,5 @@
 class Robocop
- @direction
+  @direction
 
     def beep
         'beep boop'
@@ -9,9 +9,6 @@ class Robocop
 		# Initialize the Robot, confirmed with the BA that 
 		# the robot would start at (0,0) facing north
 		#
-		def initialize 
-			@direction = 'N'
-		end
 		
 		def set_direction (direction)
 			@direction = direction
@@ -38,10 +35,35 @@ class Robocop
 			turn_left
 		end
 
-  def initialize()
+  def initialize
     @x = 0
     @y = 0
     @direction = 'N'
+  end
+
+  def getX
+    return @x
+  end
+
+  def getY
+    return @y
+  end
+
+  def moveForward
+
+    if @direction == 'N'
+        @y = @y + 1
+        'moved forward north by 1 unit'
+    elsif @direction == 'E'
+        @x = @x + 1
+        'moved forward east by 1 unit'
+    elsif @direction == 'W'
+        @x = @x - 1
+      'moved forward west by 1 unit'
+    else
+      @y = @y - 1
+      'moved forward south by 1 unit'
+    end
   end
 
 end
