@@ -83,8 +83,9 @@ end
  end
 
   def moveForward
-
-    if @direction == 'N'
+		if !canMoveForward
+				'it did not move forward'
+		elsif @direction == 'N'
         @y = @y + 1
         'moved forward north by 1 unit'
     elsif @direction == 'E'
