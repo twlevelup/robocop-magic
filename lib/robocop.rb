@@ -4,8 +4,8 @@ class Robocop
  @x
  @y
 
- @@gridx = 10
- @@gridy = 10
+ @gridx = 10
+ @gridy = 10
 
     def beep
         'beep boop'
@@ -52,11 +52,11 @@ def canMoveForward
 
 	case @direction
 		when 'N'
-			return @y < @@gridy
+			return @y < @gridy
 		when 'S'
 			return @y > 0 
 		when 'E'
-			return @x < @@gridx 
+			return @x < @gridx 
 		when 'W'
 			return @x > 0 
 		else
