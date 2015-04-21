@@ -6,6 +6,18 @@ RSpec.describe Robocop do
 	@d = Robocop.new
 	end
 
+	it "places the robot at x = 1 when running set_x(1)" do
+	  @d.set_x(1)
+	  expect(@d.getX()).to eq(1)
+	  expect(@d.getY()).to eq(0)
+	end
+	
+	it "places the robot at y = 1 when running set_y(1)" do
+	  @d.set_y(1)
+	  expect(@d.getX()).to eq(0)
+	  expect(@d.getY()).to eq(1)
+	end
+	
 	it "it should face west after starting the robot" do
 	expect(@d.turn_left).to eq('W')
 	end
@@ -83,20 +95,18 @@ RSpec.describe Robocop do
 
 	it "if robot is facing west it should move forward west by 1 unit" do
 	@d.set_direction('W')
-	expect(@d.getX()).to eq(0)
-	expect(@d.getY()).to eq(0)
+	@d.set_x(1)
 	expect(@d.moveForward()).to eq('moved forward west by 1 unit')
-	expect(@d.getX()).to eq(-1)
+	expect(@d.getX()).to eq(0)
 	expect(@d.getY()).to eq(0)
 	end
 
 	it "if robot is facing south it should move forward south by 1 unit" do
 	@d.set_direction('S')
-	expect(@d.getX()).to eq(0)
-	expect(@d.getY()).to eq(0)
+	@d.set_y(1)
 	expect(@d.moveForward()).to eq('moved forward south by 1 unit')
 	expect(@d.getX()).to eq(0)
-	expect(@d.getY()).to eq(-1)
+	expect(@d.getY()).to eq(0)
 	end
 
 	it "It should show False if when moving north from the edge" do
@@ -144,5 +154,27 @@ RSpec.describe Robocop do
 		@d.set_x(5)
 		@d.set_direction('W')
 		expect(@d.canMoveForward()).to eq(true)
+	end
+	
+	it "if robot is facing west on the origin it should not move forward" do
+	@d.set_direction('W')
+	expect(@d.moveForward()).to eq('it did not move forward')
+	end
+	
+	it "if robot is facing east on the eastern boundary it should not move forward" do
+	@d.set_direction('E')
+	@d.set_x(10)
+	expect(@d.moveForward()).to eq('it did not move forward')
+	end
+	
+	it "if robot is facing south on the origin it should not move forward" do
+	@d.set_direction('S')
+	expect(@d.moveForward()).to eq('it did not move forward')
+	end
+	
+	it "if robot is facing north on the northern boundary it should not move forward" do
+	@d.set_direction('N')
+	@d.set_y(10)
+	expect(@d.moveForward()).to eq('it did not move forward')
 	end
 end
