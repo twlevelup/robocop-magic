@@ -78,6 +78,10 @@ end
     return @y
   end
 
+ def getDirection
+	 return @direction
+ end
+
   def moveForward
 
     if @direction == 'N'
