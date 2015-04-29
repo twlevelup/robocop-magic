@@ -1,4 +1,4 @@
-require './Robocop'
+require './lib/robocop'
 
 class Controller
 

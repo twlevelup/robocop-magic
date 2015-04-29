@@ -1,4 +1,4 @@
-require 'controller'
+require './lib/controller'
 
 RSpec.describe Controller do
 	it "returns true when the command is F" do
