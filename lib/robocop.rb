@@ -68,6 +68,9 @@ end
     @x = 0
     @y = 0
     @direction = 'N'
+    @gridx = 10
+ 	@gridy = 10
+
   end
 
   def getX
@@ -83,20 +86,20 @@ end
  end
 
   def moveForward
-		if !canMoveForward
-				'it did not move forward'
-		elsif @direction == 'N'
+	if !canMoveForward()
+		'it did not move forward'
+	elsif @direction == 'N'
         @y = @y + 1
         'moved forward north by 1 unit'
     elsif @direction == 'E'
         @x = @x + 1
         'moved forward east by 1 unit'
     elsif @direction == 'W'
-        @x = @x - 1
-      'moved forward west by 1 unit'
+       	@x = @x - 1
+     	'moved forward west by 1 unit'
     else
-      @y = @y - 1
-      'moved forward south by 1 unit'
+      	@y = @y - 1
+      	'moved forward south by 1 unit'
     end
   end
 

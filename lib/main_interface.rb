@@ -1,4 +1,4 @@
-require './controller'
+require './lib/controller'
 
 c = Controller.new
 c.createRobot
