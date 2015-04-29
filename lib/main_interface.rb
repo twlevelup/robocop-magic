@@ -14,7 +14,7 @@ begin
   puts ''
   STDOUT.flush
   command = gets.chomp
-  if !c.sendCommand(command) && command != 'E'
+  if !c.sendCommand(command) && command.upcase != 'E'
     puts 'Command is not valid. Try again'
   end
-end while   command != 'E'
+end while   command.upcase != 'E'

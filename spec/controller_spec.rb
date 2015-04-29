@@ -10,6 +10,23 @@ RSpec.describe Controller do
 	it "returns true when the command is F" do
 	    expect(@c.sendCommand('F')).to eq(true)
 	end
+	it "returns true when the command is f" do
+	    expect(@c.sendCommand('f')).to eq(true)
+	end
+	it "returns true when the command is r" do
+	    expect(@c.sendCommand('f')).to eq(true)
+	end
+	it "returns true when the command is l" do
+	    expect(@c.sendCommand('f')).to eq(true)
+	end
+
+	it "returns true when the command is a" do
+	    expect(@c.sendCommand('f')).to eq(true)
+	end
+
+	it "returns true when the command is A" do
+	    expect(@c.sendCommand('A')).to eq(true)
+	end
 
 	it "returns true when the command is R" do
 	    expect(@c.sendCommand('R')).to eq(true)
@@ -30,6 +47,5 @@ RSpec.describe Controller do
 	it "Given printLocation print the current location and direction of the robot" do
 		expect(@c.printLocation()).to eq('Robot is at (0,0) facing North')
   end
-
 
 end

@@ -29,7 +29,7 @@ class Controller
 	end
 
 	def sendCommand(command)
-		case command
+		case command.upcase 
 			when 'F'
 				if !@robot.moveForward()
 					puts 'Your selected location is outside of the grid. The robot cannot move outside the grid.'
@@ -43,6 +43,8 @@ class Controller
 			when 'L'
 				@robot.turn_left()
 				puts printLocation()
+				true
+			when 'A'
 				true
 			else
 				false
