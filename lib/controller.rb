@@ -32,9 +32,14 @@ class Controller
 		if validCommand(command)	
 			case command
 				when 'F'
-					@robot.moveForward()
-					puts printLocation()
-					true	
+					if 'it did not move forward' != @robot.moveForward()
+						puts printLocation()
+						true	
+					else
+						puts 'Your selected location is outside of the grid. The robot cannot move outside the grid.'
+						puts printLocation()
+						true
+					end
 				when 'R'
 					@robot.turn_right()
 					puts printLocation()
