@@ -77,18 +77,14 @@ RSpec.describe Robocop do
 	end
 
 	it "if robot is facing north it should move forward north by 1 unit" do
-	expect(@d.getX()).to eq(0)
-	expect(@d.getY()).to eq(0)
-	expect(@d.moveForward()).to eq('moved forward north by 1 unit')
+	@d.moveForward()
 	expect(@d.getX()).to eq(0)
 	expect(@d.getY()).to eq(1)
 	end
 
 	it "if robot is facing east it should move forward east by 1 unit" do
 	@d.set_direction('E')
-	expect(@d.getX()).to eq(0)
-	expect(@d.getY()).to eq(0)
-	expect(@d.moveForward()).to eq('moved forward east by 1 unit')
+	@d.moveForward()
 	expect(@d.getX()).to eq(1)
 	expect(@d.getY()).to eq(0)
 	end
@@ -96,7 +92,7 @@ RSpec.describe Robocop do
 	it "if robot is facing west it should move forward west by 1 unit" do
 	@d.set_direction('W')
 	@d.set_x(1)
-	expect(@d.moveForward()).to eq('moved forward west by 1 unit')
+	@d.moveForward()
 	expect(@d.getX()).to eq(0)
 	expect(@d.getY()).to eq(0)
 	end
@@ -104,7 +100,7 @@ RSpec.describe Robocop do
 	it "if robot is facing south it should move forward south by 1 unit" do
 	@d.set_direction('S')
 	@d.set_y(1)
-	expect(@d.moveForward()).to eq('moved forward south by 1 unit')
+	@d.moveForward()
 	expect(@d.getX()).to eq(0)
 	expect(@d.getY()).to eq(0)
 	end
@@ -158,23 +154,23 @@ RSpec.describe Robocop do
 	
 	it "if robot is facing west on the origin it should not move forward" do
 	@d.set_direction('W')
-	expect(@d.moveForward()).to eq('it did not move forward')
+	expect(@d.moveForward()).to eq(false)
 	end
 	
 	it "if robot is facing east on the eastern boundary it should not move forward" do
 	@d.set_direction('E')
 	@d.set_x(10)
-	expect(@d.moveForward()).to eq('it did not move forward')
+	expect(@d.moveForward()).to eq(false)
 	end
 	
 	it "if robot is facing south on the origin it should not move forward" do
 	@d.set_direction('S')
-	expect(@d.moveForward()).to eq('it did not move forward')
+	expect(@d.moveForward()).to eq(false)
 	end
 	
 	it "if robot is facing north on the northern boundary it should not move forward" do
 	@d.set_direction('N')
 	@d.set_y(10)
-	expect(@d.moveForward()).to eq('it did not move forward')
+	expect(@d.moveForward()).to eq(false)
 	end
 end

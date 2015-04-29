@@ -87,20 +87,17 @@ end
 
   def moveForward
 	if !canMoveForward()
-		'it did not move forward'
+		return false
 	elsif @direction == 'N'
         @y = @y + 1
-        'moved forward north by 1 unit'
     elsif @direction == 'E'
         @x = @x + 1
-        'moved forward east by 1 unit'
     elsif @direction == 'W'
        	@x = @x - 1
-     	'moved forward west by 1 unit'
     else
       	@y = @y - 1
-      	'moved forward south by 1 unit'
     end
+    true
   end
 
 end
