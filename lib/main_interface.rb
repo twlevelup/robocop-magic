@@ -14,10 +14,7 @@ begin
   puts ''
   STDOUT.flush
   command = gets.chomp
-  if not c.validCommand(command)
+  if !c.sendCommand(command) && command != 'E'
     puts 'Command is not valid. Try again'
   end
 end while   command != 'E'
-puts 'command is ' + command
-puts ''
-puts c.printLocation

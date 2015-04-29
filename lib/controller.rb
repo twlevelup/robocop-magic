@@ -2,7 +2,7 @@ require './lib/robocop'
 
 class Controller
 
-  def createRobot()
+  	def createRobot()
 		@robot = Robocop.new
 		'Robot is created'
 	end
@@ -25,12 +25,32 @@ class Controller
 				'Error: Invalid direction'
 		end
 
-		'Robot is at (' + x.to_s + ',' + y.to_s + ') facing '+location
+		return 'Robot is at (' + x.to_s + ',' + y.to_s + ') facing '+location
 	end
 
+	def sendCommand(command)
+		if validCommand(command)	
+			case command
+				when 'F'
+					@robot.moveForward()
+					puts printLocation()
+					true	
+				when 'R'
+					@robot.turn_right()
+					puts printLocation()
+					true
+				when 'L'
+					@robot.turn_left()
+					puts printLocation()
+					true
+			end
+		else
+			false
+		end
+	end
 
 	def validCommand(command)
-		if(command == 'F')
+		if(command == 'F' || command == 'R' || command == 'L')
 			return true
 		else
 			return false
