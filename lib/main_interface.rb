@@ -9,6 +9,9 @@ puts 'Connected to robot'
 puts ''
 puts c.printLocation
 puts ''
+puts 'Input H for help'
+puts ''
+
 begin
   print 'Please enter command: '
   puts ''

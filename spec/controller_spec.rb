@@ -1,4 +1,4 @@
-require './lib/controller'
+require 'controller'
 
 RSpec.describe Controller do
 
@@ -46,6 +46,10 @@ RSpec.describe Controller do
 
 	it "Given printLocation print the current location and direction of the robot" do
 		expect(@c.printLocation()).to eq('Robot is at (0,0) facing North')
+  end
+
+  it "Given a H as the command it should return a list of possible command for the robot" do
+    expect(@c.sendCommand('H')).to eq(true)
   end
 
 end

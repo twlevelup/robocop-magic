@@ -2,7 +2,10 @@ require './lib/robocop'
 
 class Controller
 
-  	def createRobot()
+  $robots_array = Array.new
+  $robot_id = 0
+
+  def createRobot()
 		@robot = Robocop.new
 		'Robot is created'
 	end
@@ -29,7 +32,7 @@ class Controller
 	end
 
 	def sendCommand(command)
-		case command.upcase 
+		case command.upcase
 			when 'F'
 				if !@robot.moveForward()
 					puts 'Your selected location is outside of the grid. The robot cannot move outside the grid.'
@@ -44,11 +47,29 @@ class Controller
 				@robot.turn_left()
 				puts printLocation()
 				true
+			when 'H'
+				puts help
+				true
+			when 'N'
+				puts addRobot
+        true
 			when 'A'
 				true
 			else
 				false
 		end
+	end
+
+	def help()
+		return "Input 'R' to turn right \nInput 'L' to turn left \nInput 'F' to move forward \nInput 'E' to exit
+Input 'N' for adding a robot\n\n"
+	end
+
+	def addRobot()
+		@robot = Robocop.new
+    $robots_array.insert($robot_id, @robot)
+    $robot_id = $robot_id + 1
+    $robots_array.to_s
 	end
 
 end
