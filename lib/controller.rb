@@ -49,10 +49,77 @@ class Controller
 					puts 'The robot has made an arrest'
 				end
 				true
-
 			else
-				false
+				commandArray = command.split(',')
+				if (commandArray.length == 2)
+				 	if /\A[-+]?\d+\z/.match(commandArray[0]) and /\A[-+]?\d+\z/.match(commandArray[1])
+				 		x = Integer(commandArray[0])
+				 		y = Integer(commandArray[1])
+				 		if @robot.checkcoordinates(x , y)
+				 			nextInst = nextInstruction(x , y)
+				 			while (nextInst != 'no command needed')
+					 			nextInst = nextInstruction(x , y)
+					 			
+					 			case nextInst
+					 				when 'Move Forward' 
+					 					@robot.moveForward()
+					 				when 'Turn Right'
+					 					@robot.turn_right()
+					 			end
+					 			puts printLocation()
+				 			end	
+
+
+				 			true
+				 		else
+				 			puts "The coordinates are out of the grid"
+				 			true
+				 		end
+					else
+					      puts "Please enter valid coordinates"
+					      false
+					end  
+				else 
+					false
+				end
 		end
+	end
+
+	def nextInstruction (x , y)
+		 if @robot.getX() == x
+		 	if @robot.getY() == y
+		 		return 'no command needed'
+		 	else
+		 		if @robot.getY() > y 
+		 		if @robot.getDirection() == 'S'
+		 			return 'Move Forward'
+		 		else
+		 			return 'Turn Right'
+		 		end
+		 	else
+		 		if @robot.getDirection() == 'N'
+		 			return 'Move Forward'
+		 		else
+		 			return 'Turn Right'
+		 		end
+		 	end
+
+		 	end
+		 else
+		 	if @robot.getX() > x 
+		 		if @robot.getDirection() == 'W'
+		 			return 'Move Forward'
+		 		else
+		 			return 'Turn Right'
+		 		end
+		 	else
+		 		if @robot.getDirection() == 'E'
+		 			return 'Move Forward'
+		 		else
+		 			return 'Turn Right'
+		 		end
+		 	end
+		 end
 	end
 
 end
