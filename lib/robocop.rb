@@ -100,4 +100,8 @@ end
     true
   end
 
+def arrest
+	 return true
+ end
+
 end

@@ -45,7 +45,11 @@ class Controller
 				puts printLocation()
 				true
 			when 'A'
+				if @robot.arrest()
+					puts 'The robot has made an arrest'
+				end
 				true
+
 			else
 				false
 		end

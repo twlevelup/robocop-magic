@@ -173,4 +173,9 @@ RSpec.describe Robocop do
 	@d.set_y(10)
 	expect(@d.moveForward()).to eq(false)
 	end
+
+	it "if robot try to arrest, the robot reply with message that has arrest someone" do
+		expect(@d.arrest()).to eq(true)
+	end
+
 end
