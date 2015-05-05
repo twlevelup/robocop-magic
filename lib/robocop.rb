@@ -100,4 +100,13 @@ end
     true
   end
 
+def arrest
+	 return true
+ end
+
+ def checkcoordinates(x,y)
+ 	return (@gridx >= x and @gridy >= y and x > -1 and y > -1)
+ end
+  
+
 end

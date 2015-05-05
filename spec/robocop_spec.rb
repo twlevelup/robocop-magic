@@ -173,4 +173,16 @@ RSpec.describe Robocop do
 	@d.set_y(10)
 	expect(@d.moveForward()).to eq(false)
 	end
+
+	it "if robot try to arrest, the robot reply with message that has arrest someone" do
+		expect(@d.arrest()).to eq(true)
+	end
+
+	it "if send coordinates (5,6) are inside grid return true" do
+		expect(@d.checkcoordinates(5,6)).to eq(true)
+	end
+	it "if send coordinates (11,11) are inside grid return false" do
+		expect(@d.checkcoordinates(11,11)).to eq(false)
+	end
+
 end
