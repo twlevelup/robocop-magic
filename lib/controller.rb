@@ -79,8 +79,10 @@ class Controller
 				 		y = commandArray[1].to_i
 				 		if @robot.checkcoordinates(x , y)
 				 			nextInst = nextInstruction(x , y)
-
 				 			direction = @robot.getDirection
+				 			if nextInst == 'no command needed'
+					 				puts printLocation()
+					 		end
 				 			while (nextInst != 'no command needed')
 					 			nextInst = nextInstruction(x , y)
 					 			
