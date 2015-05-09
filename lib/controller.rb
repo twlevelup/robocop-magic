@@ -75,8 +75,8 @@ class Controller
 				commandArray = command.split(',')
 				if (commandArray.length == 2)
 				 	if /\A[-+]?\d+\z/.match(commandArray[0]) and /\A[-+]?\d+\z/.match(commandArray[1])
-				 		x = Integer(commandArray[0])
-				 		y = Integer(commandArray[1])
+				 		x = commandArray[0].to_i
+				 		y = commandArray[1].to_i
 				 		if @robot.checkcoordinates(x , y)
 				 			nextInst = nextInstruction(x , y)
 
