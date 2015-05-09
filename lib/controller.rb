@@ -119,7 +119,7 @@ class Controller
 
 	def help()
 		return "Input 'R' to turn right \nInput 'L' to turn left \nInput 'F' to move forward 
-Input '#,#'' to move the robot to a specific coordinate. Eg: 1,5\nInput 'E' to exit \n\n"
+Input '#,#' to move the robot to a specific coordinate. Eg: 1,5\nInput 'E' to exit \n\n"
 	end
 
 	def addRobot()
