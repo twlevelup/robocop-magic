@@ -24,9 +24,9 @@ RSpec.describe Controller do
 	    expect(@c.sendCommand('f')).to eq(true)
 	end
 
-	it "returns true when the command is A" do
-	    expect(@c.sendCommand('A')).to eq(true)
-	end
+	#it "returns true when the command is A" do
+	#    expect(@c.sendCommand('A')).to eq(true)
+	#end
 
 	it "returns true when the command is R" do
 	    expect(@c.sendCommand('R')).to eq(true)
@@ -87,5 +87,9 @@ RSpec.describe Controller do
   it "Given a H as the command it should return a list of possible command for the robot" do
     expect(@c.sendCommand('H')).to eq(true)
   end
+
+  #it "return a list of the current robots on the system"do
+  #	expect(@c.listAllrobors()).to eq("List of Robot \n * 1 \n   2 \n   3")
+  #end
 
 end

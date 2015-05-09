@@ -1,8 +1,10 @@
 class Robocop
 
+ @id
  @direction
  @x
  @y
+
 
  @gridx = 10
  @gridy = 10
@@ -18,6 +20,14 @@ class Robocop
 		
 		def set_direction (direction)
 			@direction = direction
+		end
+
+		def set_id (id)
+			@id = id
+		end
+
+		def getId
+			@id
 		end
 
 		def set_x(locationX)

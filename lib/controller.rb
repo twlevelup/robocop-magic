@@ -5,9 +5,21 @@ class Controller
   $robots_array = Array.new
   $robot_id = 0
 
-  def createRobot()
+ 	#def initialize()
+ 	#	addRobot()
+ 	#	addRobot()
+ 	#	addRobot()
+ 	#	@robot =  $robots_array[1]
+ 	#	listAllrobors()
+  	#end
+
+ 	def createRobot()
 		@robot = Robocop.new
 		'Robot is created'
+	end
+
+	def listAllrobors()
+		#$robots_array.each { |robot| puts @robot=robot, 'Robot '+@robot.getId.to_s+' '+printLocation }
 	end
 
 	def printLocation()
@@ -35,7 +47,8 @@ class Controller
 		case command.upcase
 			when 'F'
 				if !@robot.moveForward()
-					puts 'Your selected location is outside of the grid. The robot cannot move outside the grid.'
+					puts 'Your selected location is outside of the grid.'
+					puts ''
 				end
 				puts printLocation()
 				 true
@@ -50,14 +63,14 @@ class Controller
 			when 'H'
 				puts help
 				true
-			when 'N'
-				puts addRobot
-        true
-			when 'A'
-				if @robot.arrest()
-					puts 'The robot has made an arrest'
-				end
-				true
+			#when 'N'
+			#	puts addRobot
+            #    true
+			#when 'A'
+			#	if @robot.arrest()
+			#		puts 'The robot has made an arrest'
+			#	end
+			#	true
 			else
 				commandArray = command.split(',')
 				if (commandArray.length == 2)
@@ -66,6 +79,8 @@ class Controller
 				 		y = Integer(commandArray[1])
 				 		if @robot.checkcoordinates(x , y)
 				 			nextInst = nextInstruction(x , y)
+
+				 			direction = @robot.getDirection
 				 			while (nextInst != 'no command needed')
 					 			nextInst = nextInstruction(x , y)
 					 			
@@ -75,8 +90,14 @@ class Controller
 					 				when 'Turn Right'
 					 					@robot.turn_right()
 					 			end
-					 			puts printLocation()
+					 			if nextInst != 'no command needed'
+					 				puts printLocation()
+					 			end
 				 			end	
+				 			while(@robot.getDirection != direction)
+				 				@robot.turn_right()
+				 				puts printLocation()
+				 			end
 
 
 				 			true
@@ -95,15 +116,16 @@ class Controller
 	end
 
 	def help()
-		return "Input 'R' to turn right \nInput 'L' to turn left \nInput 'F' to move forward \nInput 'E' to exit
-Input 'N' for adding a robot\n\n"
+		return "Input 'R' to turn right \nInput 'L' to turn left \nInput 'F' to move forward 
+Input '#,#'' to move the robot to a specific coordinate. Eg: 1,5\nInput 'E' to exit \n\n"
 	end
 
 	def addRobot()
-		@robot = Robocop.new
-    $robots_array.insert($robot_id, @robot)
-    $robot_id = $robot_id + 1
-    $robots_array.to_s
+		robot = Robocop.new
+		$robot_id = $robot_id + 1
+		robot.set_id($robot_id)
+    	$robots_array.insert($robot_id, robot)
+    	$robots_array.to_s
     end
 
 	def nextInstruction (x , y)
